@@ -1,0 +1,32 @@
+- hosts: localhost
+  become: true
+
+  vars:
+    username: "radek"
+    userhome: "/home/{{ username }}"
+    source_key: "./files/.ssh/id_ed25519"
+    dest_key: "{{ userhome }}/.ssh/id_ed25519"
+    personal: "{{ userhome }}/Projects"
+
+  pre_tasks:
+    - name: Update cache
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+
+  tags:
+    - install
+    - core 
+    - neovim
+    - ssh
+    - productivity
+    - lsp
+  
+  tasks:
+    - include: tasks/ssh.yml
+    - include: tasks/software.yml
+    - include: tasks/zsh.yml
+    - include: tasks/user.yml
+    - include: tasks/nvim.yml
+    - include: tasks/lsp.yml

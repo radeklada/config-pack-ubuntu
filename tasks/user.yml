@@ -1,0 +1,18 @@
+- name: Add sudoers entry for "{{ username }}"
+  lineinfile:
+    path: "/etc/sudoers.d/{{ username }}"
+    line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+    create: yes
+    mode: "0640"
+
+- name: Create opt/scripts directory
+  become_user: "{{ username }}"
+  file:
+    path: "{{ userhome }}/opt/scripts"
+    state: directory
+
+- name: Copy ansible config file
+  become_user: "{{ username }}"
+  copy:
+    src: "files/ansible/ansible.cfg"
+    dest: "/etc/ansible/ansible.cfg"
