@@ -11,8 +11,3 @@
     path: "{{ userhome }}/opt/scripts"
     state: directory
 
-- name: Copy ansible config file
-  become_user: "{{ username }}"
-  copy:
-    src: "files/ansible/ansible.cfg"
-    dest: "/etc/ansible/ansible.cfg"
