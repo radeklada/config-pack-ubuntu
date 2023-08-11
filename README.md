@@ -8,9 +8,9 @@ Install ansible (for Ubuntu):
 
 ```
 
-sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
 sudo apt install ansible
+ansible-galaxy install -r requirements.yml
 
 ansible-playbook -i ansible.cfg setup.yml
 
