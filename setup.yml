@@ -21,7 +21,6 @@
     - neovim
     - ssh
     - productivity
-    - lsp
   
   tasks:
     - include: tasks/ssh.yml
@@ -29,4 +28,3 @@
     - include: tasks/zsh.yml
     - include: tasks/user.yml
     - include: tasks/nvim.yml
-    - include: tasks/lsp.yml
