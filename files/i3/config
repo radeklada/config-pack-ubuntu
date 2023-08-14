@@ -115,7 +115,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  Terminal"
-set $ws2 "2:  Firefox"
+set $ws2 "2:  "
 set $ws3 "3:  Notes"
 set $ws4 "4"
 set $ws5 "5"
@@ -188,7 +188,7 @@ bindsym $mod+r mode "resize"
 
 bar {
 	status_command ~/.local/bin/bumblebee-status \
-        -m cpu memory battery time \
+        -m cpu memory time \
 		pasink pasource \
         -p time.format="%H:%M" \
         -t greyish-powerline
@@ -216,11 +216,11 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 exec_always feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
 # Allocate applications to workspaces
-for_window [class="firefox"] move to workspace $ws2
+for_window [class="shutter"] move to workspace $ws6
 for_window [class="notion-snap-reborn"] move to workspace $ws3
 
 # Transparency with picom compositor
-exec_always picom -f
+exec_always picom
 
 # default gaps
 gaps inner 15
