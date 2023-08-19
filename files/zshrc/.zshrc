@@ -32,7 +32,6 @@ base64_cert ()
 {
     echo -n $1 | base64 -d | openssl x509 -text | grep --color='always' 'Not Before\|Not After\|Subject Alternative Name\|$' | batcat --color always --paging always
 }
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
 alias myip='dig @resolver4.opendns.com myip.opendns.com +short' 
 alias myip4='dig @resolver4.opendns.com myip.opendns.com +short -4'
